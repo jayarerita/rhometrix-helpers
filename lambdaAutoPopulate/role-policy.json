@@ -1,0 +1,56 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:BatchGetItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:PutItem",
+                "dynamodb:DescribeTable",
+                "dynamodb:DeleteItem",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:Query",
+                "dynamodb:UpdateItem",
+                "dynamodb:GetRecords"
+            ],
+            "Resource": [
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Company-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Configuration-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/User-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Customer-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Part-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/SubscriptionPlan-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Comment-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Inspection-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Job-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/LineItem-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Measurement-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Press-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/PurchaseOrder-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/Release-wrtexgz2rfexlcwdhq6wqnzcna-dev",
+                "arn:aws:dynamodb:us-east-1:975050172558:table/CompanySubscription-wrtexgz2rfexlcwdhq6wqnzcna-dev"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": [
+                "arn:aws:logs:us-east-1:975050172558:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:975050172558:log-group:/aws/lambda/rhometrixDemoDataPopulate:*"
+            ]
+        }
+    ]
+}

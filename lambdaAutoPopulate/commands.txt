@@ -1,0 +1,12 @@
+
+aws iam create-role --role-name rhometixDevDataPopulateExec --assume-role-policy-document file://trust-policy.json --profile lattice-ops-app-admin 
+
+aws iam put-role-policy --role-name rhometixDevDataPopulateExec --policy-name rhometrixDevDataPopulateExecPolicy --policy-document file://role-policy.json --profile lattice-ops-app-admin 
+
+# Create function
+aws lambda create-function --function-name rhometrixDevDataPopulate \
+--zip-file fileb://lambda_function.zip --handler lambda_function.lambda_handler --runtime python3.8 \
+--role arn:aws:iam::975050172558:role/rhometixDevDataPopulateExec --layers arn:aws:lambda:us-east-1:975050172558:layer:2 --profile lattice-ops-app-admin
+
+aws lambda update-function-configuration --function-name rhometrixDevDataPopulate --profile lattice-ops-app-admin \
+--environment Variables="{CONFIGURATION_TABLE_NAME=Configuration-wrtexgz2rfexlcwdhq6wqnzcna-dev,SUBSCRIPTIONPLAN_TABLE_NAME=SubscriptionPlan-wrtexgz2rfexlcwdhq6wqnzcna-dev,COMPANY_TABLE_NAME=Company-wrtexgz2rfexlcwdhq6wqnzcna-dev,USER_TABLE_NAME=User-wrtexgz2rfexlcwdhq6wqnzcna-dev,COMMENT_TABLE_NAME=Comment-wrtexgz2rfexlcwdhq6wqnzcna-dev,INSPECTION_TABLE_NAME=Inspection-wrtexgz2rfexlcwdhq6wqnzcna-dev,PART_TABLE_NAME=Part-wrtexgz2rfexlcwdhq6wqnzcna-dev}"
